@@ -22,7 +22,7 @@ export default function TaskForm() {
                     />
                 </div>
                 <div className="col-8">
-                    <button className = "btn btn-primary float-left">Add to List</button>
+                    <button className = "btn btn-danger float-start">Add to List</button>
                 </div>
             </div>
         </section>

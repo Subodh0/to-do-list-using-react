@@ -8,10 +8,10 @@ export default function List(props) {
         var html = Object.keys(list).map((item, index) => (
             <>
                 <div className = "col-1">
-                    <h6 className="font-weight-bold">{index + 1}</h6>
+                    <h6 className="fw-bold">{index + 1}</h6>
                 </div>
                 <div className='col-8'>
-                    <p className="font-weight-bold float-left">{list[item].description}</p>
+                    <p className="fw-bold float-start">{list[item].description}</p>
                 </div>
                 <div className = 'col-3'>
                     <button 
