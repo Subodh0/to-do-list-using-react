@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 export default function TaskForm() {
 
-    const [description, setDescription] = useState("");
+    const [description, setDescription] = useState('');
 
     console.log(description)
     
