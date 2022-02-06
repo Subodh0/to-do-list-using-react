@@ -16,7 +16,7 @@ export default function List(props) {
                 <div className = 'col-1'>
                     <button 
                         onClick = {() => {fireListEvent(item, list[item])}}
-                        className = "btn btn-sm btn-primary">View
+                        className = "btn btn-sm btn-secondary">View
                     </button>
                 </div>
                 <div className = 'col-3'>
