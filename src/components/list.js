@@ -1,34 +1,36 @@
+import { Link } from "react-router-dom";
+
 export default function List(props) {
-    
-    const { list, fireListEvent, buttonText, title, viewTask, currentItemView } = props;
+    const { list, fireListEvent, buttonText, title, viewTask, currentItemInView } = props;
     
     const generateHTML = () => {
         if (!list)
             return <></>
         var html = Object.keys(list).map((item, index) => (
-            <>
+            <div className = "row" key = {`to-do-list-${item}`}>    
                 <div className = "col-1">
-                    <h6 className="fw-bold">{index + 1}</h6>
+                    <h6 className="font-weight-bold">{index + 1}</h6>
                 </div>
                 <div className='col-7'>
-                    <p className="fw-bold float-start">{list[item].description}</p>
+                    <p className='float-left fw-bold'>{list[item].description}</p>
                 </div>
                 <div className = 'col-1'>
-                    <button 
-                        onClick = {() => {viewTask(item, list[item])}}
-                        className = "btn btn-sm btn-secondary"
-                        disabled = {currentItemView ? currentItemView.key === item : false}
+                    <Link 
+                        className = "btn btn-sm btn-dark"    
+                        to={`/item/${item}`}
                     >
                         View
-                    </button>
+                    </Link>
                 </div>
                 <div className = 'col-3'>
                     <button 
                         onClick = {() => {fireListEvent(item, list[item])}}
-                        className = "btn btn-sm btn-success">{buttonText}
+                        className = "btn btn-sm btn-success"
+                    >
+                        {buttonText}
                     </button>
                 </div>
-            </>
+            </div>
         ))
         return html;
     }
@@ -40,11 +42,9 @@ export default function List(props) {
                     <h3 className = "font-weight-bold">{title}</h3>
                 </div>
                 <div className = "card-body">
-                    <div className = "row">    
-                        {generateHTML()}
-                    </div>
+                    {generateHTML()}
                 </div>
             </div>
         </section>
-    );
+    )
 }
