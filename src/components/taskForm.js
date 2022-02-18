@@ -3,11 +3,10 @@ import { useState } from "react"
 
 export default function TaskForm(props) {
 
-    const { addToList } = props;
+    const { addToList, displayTasks } = props;
 
     const [description, setDescription] = useState('');
 
-    //console.log(description)
     
     return(
         <section className = "col-12">
@@ -36,6 +35,15 @@ export default function TaskForm(props) {
                         Add to List
                     </button>
                 </div>
+                {/* <div className="col-4">
+                    <button className="btn btn-info float-end"
+                        onClick={
+                            displayTasks()
+                        }
+                    >
+                        All Tasks
+                    </button>
+                </div> */}
             </div>
         </section>
     )

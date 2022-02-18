@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Header from "./header";
 
 export default function RegisterUser () {
     const [email, setEmail] = useState("");
@@ -30,6 +31,7 @@ export default function RegisterUser () {
 
     return (
         <section>
+            <Header />
             <div className="container">
                 <div className="d-flex justify-content-center h-100">
                     <div className="card">

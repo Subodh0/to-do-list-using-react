@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Header from "./header";
+import Loader from "./loader";
 
 export default function Description(props) {
-    
-    const [displayItem, setDispalyItem] = useState([]);
+
     let { currentItemInView } = useParams();
-    //let task = undefined;
+    const [task, setTask] = useState();
 
     useEffect(() => {
         fetchItem();
@@ -19,10 +20,7 @@ export default function Description(props) {
                 Authorization : localStorage.getItem('token')
             }
         }).then((res)=>{
-            setDispalyItem([
-                ...displayItem,
-                res.data.data.description
-            ])
+            setTask(res.data.data)
         }).catch((err)=>{
             console.log(err)
         })
@@ -33,15 +31,21 @@ export default function Description(props) {
     
     return(
         <section className="w-100 mt-5 mb-5">
+            <Header />
             <div className="container">
                 <div className ="card">
                     <div className = "card-title mt-4">
                         <h3 className="font-weight-bold">Task Details</h3>
                     </div>
-                    <div className="card-body">
-                        {/* <h3 className="font-weight-bold">{currentItemInView}</h3> */}
-                        <h3 className = "mt-4 font-weight-bold">{displayItem}</h3>
-                    </div>
+                    {!task
+                        ?
+                            <Loader />
+                        :
+                            <div className="card-body">
+                                <h4 className="font-weight-bold">{task._id}</h4>
+                                <h3 className = "mt-4 font-weight-bold">{task.description}</h3>
+                            </div>
+                    }
                 </div>
             </div>
         </section>

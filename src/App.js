@@ -5,18 +5,25 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Description from './components/description';
 import Auth from './components/auth';
 import RegisterUser from './components/register';
+import UserProfile from './components/userProfile';
+import DisplayAllTask from './components/displayAllTask';
 
 export default function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
         <Routes>
           <Route exact path = '/' element = {<Auth />}></Route>
-          <Route exact path = '/home' element = {<Dashboard />}></Route>  
-          <Route exact path = '/register' element={<RegisterUser />}></Route>
-          <Route exact path = '/item/:currentItemInView' element = {<Description />}></Route>  
-        </Routes>
+          {localStorage.getItem('token') &&
+            <>
+              <Route exact path = '/home' element = {<Dashboard />}></Route>
+              <Route exact path = '/tasks' element = {<DisplayAllTask />}></Route>
+              <Route exact path = '/register' element={<RegisterUser />}></Route>
+              <Route exact path = '/item/:currentItemInView' element = {<Description />}></Route>
+              <Route exact path = '/profile' element = {<UserProfile />}></Route>
+            </>
+          }
+            </Routes>
       </Router>
     </div>
   );

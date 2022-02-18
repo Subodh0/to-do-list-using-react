@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 import { useState } from "react"
 
 
@@ -6,6 +7,7 @@ export default function Auth() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [apiMessage, setAPIMessage] = useState();
+    let history = useNavigate();
     
     const loginUser = () => {
         axios.post('https://api-nodejs-todolist.herokuapp.com/user/login', {
@@ -17,6 +19,7 @@ export default function Auth() {
                 flag : 0,
                 message : "Login Successful !!!"
             })
+            history("/home");
         }).catch((err) => {
             setAPIMessage({
                 flag : 1,
@@ -24,9 +27,7 @@ export default function Auth() {
             })
         })
     }
-
-    // console.log(email)
-    // console.log(password)  
+    
     return (
         <section>
             <div className="container">

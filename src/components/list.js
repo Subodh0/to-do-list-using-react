@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
+import Loader from "./loader";
 
 export default function List(props) {
     const { list, fireListEvent, buttonText, title, deleteFromList, listType, disableButton } = props;
     //console.log(list)
     const generateHTML = () => {
         if (!list)
-            return <></>
+            return <Loader />
         var html = Object.keys(list).map((item, index) => (
             <div className = "row" key = {`to-do-list-${item}`}>    
                 <div className = "col-1">
                     <h6 className="font-weight-bold">{index + 1}</h6>
                 </div>
-                <div className={listType ? 'col-5' :'col-6'}>
+                <div className={listType ? 'col-4' :'col-5'}>
                     <p className='float-left fw-bold'>{list[item].description}</p>
                 </div>
-                <div className = 'col-1'>
+                <div className = 'col-2'>
                     <Link 
                         className = "btn btn-sm btn-dark"    
                         to={`/item/${list[item]._id}`}
