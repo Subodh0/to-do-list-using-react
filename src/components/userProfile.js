@@ -8,6 +8,7 @@ export default function UserProfile() {
     const [ isEditing, setIsEditing ] = useState(false);
     const [ disableButton, setDisableButton ] = useState(false);
     const [ selectedFile, setSelectedFile ] = useState();
+    const [ fetchImage, setFetchImage ] = useState(false);
 
     useEffect(()=>{
         fetchProfile();
@@ -28,6 +29,9 @@ export default function UserProfile() {
              headers : {
                  Authorization : localStorage.getItem('token')
              }
+         }).then((res)=>{
+                setFetchImage(!fetchImage);
+                setSelectedFile(null);
          }).catch((err) => {
              console.log(err)
          });
@@ -73,7 +77,7 @@ export default function UserProfile() {
                 Authorization : localStorage.getItem('token')
             }
         }).then((res) => {
-            console.log(res);
+            setFetchImage(!fetchImage);
         }).catch((err) => {
             console.log(err);
         })
@@ -82,7 +86,9 @@ export default function UserProfile() {
 
     return (
         <section>
-            <Header />
+            <Header 
+                fetchImage = {fetchImage}
+            />
             {!userInfo
                 ?
                     <Loader />
@@ -197,14 +203,18 @@ export default function UserProfile() {
                                 </tr>
                             </tbody>
                         </table>
-                         <input type="file" onChange={onFileChange} />
-                        <button 
-                            className = "btn btn-info" 
-                            onClick={onFileUpload}
-                            disabled = {disableButton}
-                        >
-                            Upload!
-                        </button>
+                        <form>
+                            <input type="file" onChange={onFileChange} />
+                            <button 
+                                className = "btn btn-success" 
+                                onClick={onFileUpload}
+                                disabled = {disableButton}
+                                type="reset"
+                                value={selectedFile}
+                            >
+                                Upload!
+                            </button>
+                        </form>
                     </div>
             }
         </section>

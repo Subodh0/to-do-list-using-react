@@ -58,20 +58,20 @@ export default function Dashboard() {
     }
 
     const deleteFromList = (id) => {
-        setDisableButton(true)
-        axios.delete(`https://api-nodejs-todolist.herokuapp.com/task/${id}`,{} ,{
+        setDisableButton(true);
+        axios.delete(`https://api-nodejs-todolist.herokuapp.com/task/${id}`,{
             headers : {
                 Authorization : localStorage.getItem('token')
             }
         }).then((res) => {
             let pendingTasksCopy = pendingTasks.filter(item => item._id !== id);
             setPendingTasks(pendingTasksCopy)
-            setDisableButton(false);
         }).catch((err) => {
-            setDisableButton(false)
+            console.log(err);
         })
+        setDisableButton(false);
     }
-   
+
     const markAsChecked = (key, data) => {
         setDisableButton(true)
         axios.put(`https://api-nodejs-todolist.herokuapp.com/task/${key}`, {
