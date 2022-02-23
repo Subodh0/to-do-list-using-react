@@ -66,7 +66,7 @@ export default function Header(props) {
                     <img
                         width="40"
                         height="40"
-                        className="img-fluid rounded-circle mr-5"
+                        className="img-fluid rounded-circle me-3 ms-3"
                         src={`${profileImage}`}
                         alt="image"
                     >
@@ -81,10 +81,10 @@ export default function Header(props) {
                         <li className="nav-item active">
                             <a className="nav-link" href="/home">Home <span className="visually-hidden">(corrent)</span></a>
                         </li>
-                        <li className="nav-item mr-2">
+                        <li className="nav-item me-3">
                             <a href = "/profile" onClick={() => {}} className = "float-right nav-link">Profile</a>
                         </li>
-                        <li className="nav-item float-right">
+                        <li className="nav-item float-end me-3">
                             <button 
                                 onClick={() => {logout()}} 
                                 className = "btn btn-dark float-end btn-sm"
@@ -93,7 +93,7 @@ export default function Header(props) {
                                     Log out
                                 </button>
                         </li>
-                        <li className="nav-item float-right">
+                        <li className="nav-item float-end">
                             <button 
                                 onClick={() => {deleteProfile()}} 
                                 className = "btn btn-danger float-end btn-sm"

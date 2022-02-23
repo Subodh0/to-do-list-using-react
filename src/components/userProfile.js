@@ -99,7 +99,7 @@ export default function UserProfile() {
                 :
                     <div className="container">
                         <table className="table">
-                            <thead className="thead-dark">
+                            <thead className="table-dark">
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
