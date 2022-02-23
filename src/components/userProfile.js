@@ -2,6 +2,7 @@ import Header from "./header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./loader";
+import { useRef } from "react";
 
 export default function UserProfile() {
     const [ userInfo, setUserInfo ] = useState();
@@ -9,6 +10,9 @@ export default function UserProfile() {
     const [ disableButton, setDisableButton ] = useState(false);
     const [ selectedFile, setSelectedFile ] = useState();
     const [ fetchImage, setFetchImage ] = useState(false);
+
+
+    const ref = useRef();
 
     useEffect(()=>{
         fetchProfile();
@@ -31,7 +35,7 @@ export default function UserProfile() {
              }
          }).then((res)=>{
                 setFetchImage(!fetchImage);
-                setSelectedFile(null);
+                ref.current.value = "";
          }).catch((err) => {
              console.log(err)
          });
@@ -204,13 +208,11 @@ export default function UserProfile() {
                             </tbody>
                         </table>
                         <form>
-                            <input type="file" onChange={onFileChange} />
+                            <input type="file" onChange={onFileChange} ref={ref} />
                             <button 
                                 className = "btn btn-success" 
                                 onClick={onFileUpload}
                                 disabled = {disableButton}
-                                type="reset"
-                                value={selectedFile}
                             >
                                 Upload!
                             </button>

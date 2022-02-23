@@ -57,9 +57,9 @@ export default function Dashboard() {
         })
     }
 
-    const deleteFromList = (id) => {
+    const deleteFromList = async (id) => {
         setDisableButton(true);
-        axios.delete(`https://api-nodejs-todolist.herokuapp.com/task/${id}`,{
+       await axios.delete(`https://api-nodejs-todolist.herokuapp.com/task/${id}`,{
             headers : {
                 Authorization : localStorage.getItem('token')
             }
