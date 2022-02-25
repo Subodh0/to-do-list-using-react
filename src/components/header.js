@@ -62,7 +62,7 @@ export default function Header(props) {
     return  (
         <section className="mt-5 container mb-3">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <h1 className="navbar-brand font-weight-bold">
+                <h1 className="navbar-brand fw-bold">
                     <img
                         width="40"
                         height="40"
