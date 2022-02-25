@@ -99,7 +99,7 @@ export default class UserProfileComponent extends Component {
 
     render () {
         return (
-            <section>
+            <section className="w-100">
                 <Header 
                     fetchImage = {this.state.fetchImage}
                 />
@@ -107,9 +107,9 @@ export default class UserProfileComponent extends Component {
                     ?
                         <Loader />
                     :
-                        <div className="container">
-                            <table className="table">
-                                <thead className="thead-dark">
+                        <div className="container bby p-1">
+                            <table className="table mt-2 mb-2 p-1">
+                                <thead className="table-dark">
                                     <tr>
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>

@@ -11,7 +11,7 @@ export default function Description(props) {
 
     useEffect(() => {
         fetchItem();
-    }, [])
+    },[])
 
 
     const fetchItem = () => {
@@ -33,7 +33,7 @@ export default function Description(props) {
         <section className="w-100 mt-5 mb-5">
             <Header />
             <div className="container">
-                <div className ="card">
+                <div className ="card bby">
                     <div className = "card-title mt-4">
                         <h3 className="font-weight-bold">Task Details</h3>
                     </div>

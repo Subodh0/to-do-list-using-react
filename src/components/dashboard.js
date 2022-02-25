@@ -130,16 +130,18 @@ export default class DashboardComponent extends Component {
 
     render () {
         return (
-            <section className='container mt-5'>
-                <Header />
+            
+            <section width="100%">
+                    <Header />
+                <div className='container'>
                 <div className = "row mb-3">
                     <TaskForm 
                         pendingTasks = {this.state.pendingTasks}
                         addToList = {this.addToList}
                     />
                 </div>
-                <div className = "row">
-                    <div className = "col-6">
+                <div className = "row bby">
+                    <div className = "col-6 text-center mt-2 bby">
                         <ListComponent 
                             list = {this.state.pendingTasks}
                             fireListEvent = {this.markAsChecked}
@@ -152,7 +154,7 @@ export default class DashboardComponent extends Component {
                             disableButton = {this.state.disableButton}
                         />
                     </div>
-                    <div className = "col-6">
+                    <div className = "col-6 text-center mt-2 bby">
                         <ListComponent
                             list = {this.state.completedTasks}
                             fireListEvent = {this.markAsUnchecked}     
@@ -171,6 +173,7 @@ export default class DashboardComponent extends Component {
                         /> 
                     </div>
                 }
+                </div>
             </section>
         );
     }

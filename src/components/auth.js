@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react"
 
 
+
 export default function Auth() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -34,8 +35,55 @@ export default function Auth() {
     }
     
     return (
+        
         <section>
-        <div className="mt-5 row">
+            <div className="wrapper">
+                <div className="logo"> <img src="../../../lis.png" alt=""/> </div>
+                <div className="text-center mt-4 name"> To-Do-List </div>
+                    <form className="p-3 mt-3">
+                        <div className="form-field d-flex align-items-center"> <span className="far fa-user"></span> 
+                            {/* <input type="text" name="userName" id="userName" placeholder="Username"/> </div> */}
+                            <input 
+                                name="userName"
+                                id="userName"
+                                type="text" 
+                                value = {email} 
+                                //className="form-control" 
+                                placeholder="Username" 
+                                onChange = {(e) => {setEmail(e.target.value)}} 
+                            />
+                        </div>
+                        <div className="form-field d-flex align-items-center"> <span className="fas fa-key"></span> 
+                        {/* <input type="password" name="password" id="pwd" placeholder="Password"/>  */}
+                                <input 
+                                    name="password" 
+                                    id="pwd" 
+                                    placeholder="Password"
+                                    type="password" 
+                                    value = {password} 
+                                    //className="form-control" 
+                                    onChange = {(e) => {setPassword(e.target.value)}}
+                                />
+                        </div>
+                        {(apiMessage) &&
+                            <p className={apiMessage.flag ? "text-danger" : "text-success"}>{apiMessage.message}</p>
+                        } 
+                        {/* <button className="btn mt-3">Login</button> */}
+                        <button 
+                                className="btn mt-3"
+                                onClick={() => {loginUser()}}
+                                disabled = {disableButton}
+                            >
+                                Login
+                            </button>
+                    </form>
+                <div className="text-center fs-6"> <a href="#">Forget password?</a> or <a href="/register">Sign up</a> 
+            </div>
+            </div>
+
+
+
+        {/* <div className="mt-5 row">
             <h1 className="font-weight-bold w-100">My To-Do List Application</h1>
         </div>
         <div className="container mt-5">
@@ -96,8 +144,8 @@ export default function Auth() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                </div>
+                </div> */}
     </section>
     )
 }

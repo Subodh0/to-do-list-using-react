@@ -60,7 +60,7 @@ export default function Header(props) {
     }
 
     return  (
-        <section className="mt-5 container mb-3">
+        <section className="mt-0  mb-3 bby w-100">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <h1 className="navbar-brand fw-bold">
                     <img
@@ -79,24 +79,42 @@ export default function Header(props) {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="/home">Home <span className="visually-hidden">(corrent)</span></a>
+                            <a className="nav-link name" href="/home">Home <span className="visually-hidden">(corrent)</span></a>
                         </li>
                         <li className="nav-item me-3">
                             <a href = "/profile" onClick={() => {}} className = "float-right nav-link">Profile</a>
                         </li>
-                        <li className="nav-item float-end me-3">
+                        
+                        <li className="nav-item float-end me-5 ms-5">
+   
+                        </li>
+                        <li className="nav-item float-end me-5 ms-5">
+   
+                        </li>
+                        <li className="nav-item float-end me-5 ms-5">
+   
+                        </li>
+                        <li className="nav-item float-end me-5 ms-5">
+   
+                        </li>
+                        <li className="nav-item float-end me-5 ms-5">
+
+                        </li>
+                        <li className="nav-item float-end me-5 ms-5">
+                        </li>
+                        <li className="nav-item float-end ms-4 me-3">
                             <button 
                                 onClick={() => {logout()}} 
-                                className = "btn btn-dark float-end btn-sm"
+                                className = "btn btn-dark float-end"
                                 disabled = {disableButton}
                                 >
                                     Log out
                                 </button>
                         </li>
-                        <li className="nav-item float-end">
+                        <li className="nav-item float-end me-3">
                             <button 
                                 onClick={() => {deleteProfile()}} 
-                                className = "btn btn-danger float-end btn-sm"
+                                className = "btn btn-danger float-end"
                                 disabled = {disableButton}
                                 >
                                     Delete Profile

@@ -52,7 +52,77 @@ export default class RegisterUserComponent extends Component {
 
         return (
             <section>
-            <div className="mt-5 row">
+                <div class="wrapper">
+                    <div class="logo"> <img src="../../../lis.png" alt=""/> </div>
+                        <div class="text-center mt-4 name"> To-Do-List </div>
+                            <form class="p-1 mt-1">
+                                <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> 
+                                    {/* <input type="text" name="userName" id="userName" placeholder="Username"/> */}
+                                    <input 
+                                        type="text"
+                                        name="userName"
+                                        id="userName"
+                                        value = {this.state.userName}
+                                        placeholder="Name" 
+                                        onChange = {(e) => {this.setState({userName : e.target.value})}} 
+                                    /> 
+                                </div>
+                                <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> 
+                                    {/* <input type="password" name="password" id="pwd" placeholder="Password"/> */}
+                                    <input 
+                                        type="text" 
+                                        value = {this.state.age}  
+                                        placeholder="Age" 
+                                        onChange = {(e) => {this.setState({age : e.target.value})}} 
+                                    />
+                                    {/* <input 
+                                    type="text" 
+                                    value = {this.state.age} 
+                                    className="form-control" 
+                                    placeholder="age" 
+                                    onChange = {(e) => {this.setState({age : e.target.value})}} 
+                                />  */}
+                                </div> 
+                                <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> 
+                                    {/* <input type="password" name="password" id="pwd" placeholder="Password"/> */}
+                                    <input 
+                                        type="text"
+                                        name="email"
+                                        id="email"
+                                        value = {this.state.email} 
+                                        placeholder="Email" 
+                                        onChange = {(e) => {this.setState({email : e.target.value})}} 
+                                    /> 
+                                </div>
+                                <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> 
+                                    {/* <input type="password" name="password" id="pwd" placeholder="Password"/> */}
+                                    <input 
+                                        type="password"
+                                        name="password"
+                                        id="pwd"
+                                        value = {this.state.password}
+                                        placeholder="Password" 
+                                        onChange = {(e) => {this.setState({password : e.target.value})}} 
+                                    /> 
+                                </div>
+                                {(this.state.apiMessage) &&
+                                    <p className={!this.state.apiMessage.flag ? "text-success" : "text-danger"}>{this.state.apiMessage.message}</p>
+                                }  
+                                {/* <button class="btn mt-3">Register</button> */}
+                                <button 
+                                    className="btn mt-3"
+                                    onClick={() => {this.registerUser()}}
+                                    disabled = {this.state.disableButton}
+                                >
+                                    Register
+                                </button>
+                            </form>
+                        <div class="text-center fs-6"> <a href="/">Login</a> </div>
+                </div>
+
+
+
+            {/* <div className="mt-5 row">
                 <h1 className="font-weight-bold w-100">My To-Do List Application</h1>
             </div>
             <div className="container mt-5">
@@ -135,7 +205,7 @@ export default class RegisterUserComponent extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
         );
     }
